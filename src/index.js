@@ -5,6 +5,7 @@ import AxiosApiService from './components/axios-api-service';
 import gallaryMarkup from './components/gallaryMarkup';
 
 const axiosApiService = new AxiosApiService();
+
 const gallery = new SimpleLightbox('.gallery a', {
   scrollZoom: false,
   captionsData: 'alt',
@@ -16,13 +17,12 @@ const refs = {
   gallery: document.querySelector('.gallery'),
   loadMoreBtn: document.querySelector('.load-more'),
 };
+let totalHits = 0;
 
 refs.loadMoreBtn.style.display = 'none';
 
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
-
-let totalHits = 0;
 
 async function onSearch(e) {
   e.preventDefault();
