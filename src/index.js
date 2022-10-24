@@ -77,7 +77,18 @@ async function onLoadMore() {
   }
 
   gallery.refresh();
+  smoothScroll();
+}
 
+function addToHTML(markup) {
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
+}
+
+function removeMarkup() {
+  refs.gallery.innerHTML = '';
+}
+
+function smoothScroll() {
   const { height: cardHeight } = document
     .querySelector('.gallery')
     .firstElementChild.getBoundingClientRect();
@@ -88,14 +99,4 @@ async function onLoadMore() {
       behavior: 'smooth',
     });
   }, 300);
-
-  // document.addEventListener('DOMContentLoaded', function () {});
-}
-
-function addToHTML(markup) {
-  refs.gallery.insertAdjacentHTML('beforeend', markup);
-}
-
-function removeMarkup() {
-  refs.gallery.innerHTML = '';
 }
