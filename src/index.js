@@ -77,6 +77,19 @@ async function onLoadMore() {
   }
 
   gallery.refresh();
+
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+
+  setTimeout(() => {
+    window.scrollBy({
+      top: cardHeight * 4,
+      behavior: 'smooth',
+    });
+  }, 300);
+
+  // document.addEventListener('DOMContentLoaded', function () {});
 }
 
 function addToHTML(markup) {
